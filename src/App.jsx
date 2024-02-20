@@ -1,8 +1,15 @@
 import "./App.css";
 import React, {useState} from "react";
 
+function initialCount() {
+  console.log('Initial state is only ran one time with function')
+  return 4;
+}
+
 function App() {
-  const [count, setCount] = useState(4)
+  const [count, setCount] = useState(() => {
+    return initialCount()
+  })
 
   function decrementCount() {
     setCount(prevCount => prevCount - 1)
